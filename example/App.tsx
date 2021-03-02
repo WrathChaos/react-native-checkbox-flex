@@ -19,28 +19,61 @@ const App = () => {
         colors={["#1d2025", "#262041", "#353057"]}
         style={{ flex: 1 }}
       >
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="light-content" />
         <SafeAreaView style={{}}>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Wake up Buddy"
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Morning Run"
+              iconContainerStyle={{
+                backgroundColor: "#f19731",
+              }}
+              iconImageStyle={{
+                tintColor: "#fff",
+              }}
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Shrink project kick off"
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Hangouts Sushi"
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Daily workout"
+              iconContainerStyle={{
+                backgroundColor: "#f19731",
+              }}
+              iconImageStyle={{
+                tintColor: "#fff",
+              }}
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Call Mom"
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
           <View style={{ marginTop: 12 }}>
-            <CheckboxFlex imageSource={require("./assets/dumbell.png")} />
+            <CheckboxFlex
+              title="Check open source issues"
+              imageSource={require("./assets/dumbell.png")}
+            />
           </View>
         </SafeAreaView>
       </LinearGradient>

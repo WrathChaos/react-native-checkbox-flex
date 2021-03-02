@@ -1,14 +1,36 @@
 import React, { Component } from "react";
-import { Text, View, Image, Dimensions } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  ImageStyle,
+} from "react-native";
 import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
  * ? Local Imports
  */
 import styles from "./CheckboxFlex.style";
-const { width: ScreenWidth } = Dimensions.get("window");
+
+type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
+type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<TextStyle>>;
+type CustomImageStyleProp =
+  | StyleProp<ImageStyle>
+  | Array<StyleProp<ImageStyle>>;
 
 interface ICheckboxFlexProps {
+  title: string;
+  date?: string;
   imageSource: any;
+  titleNumberOfLines?: number;
+  style?: CustomStyleProp;
+  iconContainerStyle?: CustomStyleProp;
+  checkboxContainerStyle?: CustomStyleProp;
+  iconImageStyle?: CustomImageStyleProp;
+  titleTextStyle?: CustomTextStyleProp;
+  onPress?: () => void;
 }
 
 interface IState {}
@@ -17,70 +39,58 @@ export default class CheckboxFlex extends Component<
   ICheckboxFlexProps,
   IState
 > {
+  renderIconContainer = () => (
+    <View style={[styles.iconContainer, this.props.iconContainerStyle]}>
+      <Image
+        source={this.props.imageSource}
+        style={[styles.iconImageStyle, this.props.iconImageStyle]}
+      />
+    </View>
+  );
+
+  renderTitle = () => (
+    <View style={styles.titleContainer}>
+      <Text
+        style={[styles.titleTextStyle, this.props.titleTextStyle]}
+        numberOfLines={this.props.titleNumberOfLines || 2}
+      >
+        {this.props.title}
+      </Text>
+    </View>
+  );
+
+  renderDate = () => (
+    <View style={{ marginLeft: "auto", marginRight: 8 }}>
+      <Text style={{ color: "rgba(255,255,255,0.7)", fontWeight: "300" }}>
+        {this.props.date}
+      </Text>
+    </View>
+  );
+
+  renderCheckbox = () => (
+    <View
+      style={[styles.checkboxContainer, this.props.checkboxContainerStyle]}
+    ></View>
+  );
+
+  renderCard = () => (
+    <View style={styles.cardContainer}>
+      {this.renderIconContainer()}
+      {this.renderTitle()}
+      {this.renderDate()}
+    </View>
+  );
+
   render() {
-    const { imageSource } = this.props;
+    const { style, onPress } = this.props;
     return (
       <RNBounceable
-        style={{
-          minHeight: 70,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        onPress={() => {}}
+        bounceEffect={0.93}
+        style={[styles.container, style]}
+        onPress={onPress}
       >
-        <View
-          style={{
-            height: 25,
-            width: 25,
-            borderWidth: 1,
-            borderColor: "rgba(100,100,100,0.9)",
-            borderRadius: 8,
-          }}
-        ></View>
-        <View
-          style={{
-            paddingLeft: 8,
-            paddingRight: 8,
-            paddingTop: 12,
-            paddingBottom: 12,
-            marginLeft: 12,
-            borderRadius: 16,
-            width: ScreenWidth * 0.8,
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: "#343c4d",
-          }}
-        >
-          <View
-            style={{
-              width: 35,
-              height: 35,
-              marginLeft: 12,
-              borderRadius: 12,
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#fff",
-            }}
-          >
-            <Image source={imageSource} style={{ height: 20, width: 20 }} />
-          </View>
-          <View style={{ marginLeft: 12, width: "50%" }}>
-            <Text
-              numberOfLines={2}
-              style={{ fontSize: 16, color: "#fff", fontWeight: "bold" }}
-            >
-              Maecenas
-            </Text>
-          </View>
-          <View style={{ marginLeft: "auto", marginRight: 8 }}>
-            <Text
-              style={{ color: "#fff", letterSpacing: 1.2, fontWeight: "300" }}
-            >
-              7:00 AM
-            </Text>
-          </View>
-        </View>
+        {this.renderCheckbox()}
+        {this.renderCard()}
       </RNBounceable>
     );
   }
