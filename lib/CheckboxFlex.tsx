@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Text,
   View,
@@ -50,7 +50,7 @@ interface IState {
   isActive: boolean;
 }
 
-export default class CheckboxFlex extends Component<
+export default class CheckboxFlex extends React.Component<
   ICheckboxFlexProps,
   IState
 > {

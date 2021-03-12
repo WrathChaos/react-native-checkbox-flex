@@ -1,6 +1,6 @@
 <img alt="React Native Checkbox Flex" src="assets/logo.png" width="1050"/>
 
-[![React Native Checkbox Flex](https://img.shields.io/badge/-Extremely%20easy%20to%20create%20a%20React%20Native%20Component%20Library%20with%20both%20Stateful%20and%20Functional%20Component%20Examples-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-checkbox-flex)
+[![React Native Checkbox Flex](https://img.shields.io/badge/-Fully%20customizable%2C%20easy%20to%20use%20checkbox%20with%20flexible%20component%20by%20React%20Native%20on%20Android%20and%20iOS-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-checkbox-flex)
 
 [![npm version](https://img.shields.io/npm/v/react-native-checkbox-flex.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-checkbox-flex)
 [![npm](https://img.shields.io/npm/dt/react-native-checkbox-flex.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-checkbox-flex)
@@ -97,6 +97,10 @@ inactiveCardBackgroundColor?: string;
 
 - [x] ~~LICENSE~~
 - [ ] Write an article about the lib on Medium
+
+## Credits
+
+Heavily Inspired by [Nazar Lenyshyn's To Do List App UI - Animation Design](https://dribbble.com/shots/14437015-To-Do-List-App-UI-Animation)
 
 ## Author
 
