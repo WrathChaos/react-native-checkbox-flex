@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import CheckboxFlex from "./build/dist/CheckboxFlex";
+import CheckboxFlex from "react-native-checkbox-flex";
 
 const App = () => {
   return (

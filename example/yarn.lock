@@ -5599,6 +5599,11 @@
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-native-checkbox-flex@^0.1.0":
+  "integrity" "sha512-qRJ5h08XxNwQe30kB1nml69wvFAV8B7ESdWwGJ+apSp7OYjyRC5nDgkXR/0/OGYIco3zm3VPP4lBaXo8L8sYWw=="
+  "resolved" "https://registry.npmjs.org/react-native-checkbox-flex/-/react-native-checkbox-flex-0.1.0.tgz"
+  "version" "0.1.0"
+
 "react-native-linear-gradient@^2.5.6":
   "integrity" "sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg=="
   "resolved" "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz"
