@@ -40,7 +40,12 @@ import CheckboxFlex from "react-native-checkbox-flex";
 ## Fundamental Usage
 
 ```jsx
-<MyComponent />
+<CheckboxFlex
+  title="Morning Run"
+  date="9:00 AM"
+  description="Nulla vitae elit libero, a pharetra augue."
+  imageSource={require("./assets/running.png")}
+/>
 ```
 
 ## Example Project 😍
@@ -56,32 +61,42 @@ should work of the example project.
 
 # Configuration - Props
 
+activeCardBackgroundColor?: string;
+inactiveCardBackgroundColor?: string;
+
 ## Fundamentals
 
-| Property    |  Type  |  Default  | Description           |
-| ----------- | :----: | :-------: | --------------------- |
-| title       | string | undefined | change the title      |
-| description | string | undefined | change the descrition |
+| Property    |  Type  |  Default  | Description                        |
+| ----------- | :----: | :-------: | ---------------------------------- |
+| title       | string | undefined | set the checkbox title             |
+| date        | string | undefined | set the checkbox date              |
+| description | string | undefined | set the checkbox description       |
+| imageSource | image  | undefined | set the checkbox icon image source |
 
 ## Customization (Optionals)
 
-| Property       |   Type    |  Default  | Description                                                            |
-| -------------- | :-------: | :-------: | ---------------------------------------------------------------------- |
-| enableButton   |  boolean  |   false   | let you enable the button (must use it for button)                     |
-| onPress        | function  | undefined | set your own logic for the button functionality when it is pressed     |
-| buttonText     |  string   | undefined | change the button's text                                               |
-| style          | ViewStyle |  default  | set or override the style object for the main container                |
-| buttonStyle    | ViewStyle |  default  | set or override the style object for the button style                  |
-| ImageComponent |   Image   |  default  | set your own component instead of default react-native Image component |
+| Property                        |    Type    |         Default         | Description                                                        |
+| ------------------------------- | :--------: | :---------------------: | ------------------------------------------------------------------ |
+| onPress                         |  function  |        undefined        | set your own logic for the button functionality when it is pressed |
+| isActive                        |  boolean   |          false          | set the initial isActive state                                     |
+| style                           | ViewStyle  |         default         | set or override the style object for the main container            |
+| checkboxContainerStyle          | ViewStyle  |         default         | set or override the style object for the checkbox container        |
+| iconContainerStyle              | ViewStyle  |         default         | set or override the style object for the icon container            |
+| iconImageStyle                  | ImageStyle |         default         | set or override the style object for the icon image                |
+| titleTextStyle                  | TextStyle  |         default         | set or override the style object for the title text                |
+| dateTextStyle                   | TextStyle  |         default         | set or override the style object for the date text                 |
+| descriptionTextStyle            | TextStyle  |         default         | set or override the style object for the description text          |
+| titleNumberOfLines              |   number   |            2            | change the title number of lines                                   |
+| checkboxBorderColor             |   color    | "rgba(100,100,100,0.9)" | change the checkbox border color                                   |
+| activeCheckboxBackgroundColor   |   color    |        "#63eead"        | change the active checkbox container background color              |
+| inactiveCheckboxBackgroundColor |   color    |      "transparent"      | change the inactive checkbox container background color            |
+| activeCardBackgroundColor       |   color    |        "#2173FF"        | change the active card container background color                  |
+| activeCheckboxBackgroundColor   |   color    |        "#343c4d"        | change the inactive card container background color                |
 
 ## Future Plans
 
 - [x] ~~LICENSE~~
 - [ ] Write an article about the lib on Medium
-
-# Change Log
-
-Change log will be here !
 
 ## Author
 
