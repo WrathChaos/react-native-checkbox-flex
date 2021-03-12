@@ -34,7 +34,7 @@ npm i react-native-checkbox-flex
 ## Import
 
 ```jsx
-import MyComponent from "react-native-checkbox-flex";
+import CheckboxFlex from "react-native-checkbox-flex";
 ```
 
 ## Fundamental Usage

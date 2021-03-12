@@ -7,14 +7,53 @@ import {
 } from "react-native";
 const { width: ScreenWidth } = Dimensions.get("screen");
 
+export const _checkboxContainer = (
+  isActive: boolean,
+  borderColor: string,
+  activeBackgroundColor: string,
+  inactiveBackgroundColor: string,
+): ViewStyle => ({
+  width: 25,
+  height: 25,
+  borderWidth: 1,
+  borderRadius: 8,
+  alignItems: "center",
+  justifyContent: "center",
+  borderColor: borderColor,
+  backgroundColor: isActive ? activeBackgroundColor : inactiveBackgroundColor,
+});
+
+export const _cardContainer = (
+  isActive: boolean,
+  activeBackgroundColor: string,
+  inactiveBackgroundColor: string,
+): ViewStyle => ({
+  paddingLeft: 8,
+  paddingRight: 8,
+  paddingTop: 16,
+  paddingBottom: 16,
+  marginLeft: 12,
+  borderRadius: 16,
+  width: ScreenWidth * 0.8,
+  backgroundColor: isActive ? activeBackgroundColor : inactiveBackgroundColor,
+});
+export const _descriptionTextStyle = (isActive: boolean): TextStyle => ({
+  fontSize: 15,
+  color: isActive ? "rgba(255,255,255,0.5)" : "#86889b",
+  fontWeight: "600",
+});
+
 interface Style {
   container: ViewStyle;
   iconContainer: ViewStyle;
   iconImageStyle: ImageStyle;
   titleContainer: ViewStyle;
   titleTextStyle: TextStyle;
-  checkboxContainer: ViewStyle;
-  cardContainer: ViewStyle;
+  cardContainerGlue: ViewStyle;
+  checkboxImageStyle: ImageStyle;
+  descriptionContainer: ViewStyle;
+  dateContainer: ViewStyle;
+  dateTextStyle: TextStyle;
 }
 
 export default StyleSheet.create<Style>({
@@ -46,21 +85,25 @@ export default StyleSheet.create<Style>({
     color: "#fff",
     fontWeight: "bold",
   },
-  checkboxContainer: {
-    width: 25,
-    height: 25,
-    borderWidth: 1,
-    borderRadius: 8,
-    borderColor: "rgba(100,100,100,0.9)",
+  cardContainerGlue: {
+    flexDirection: "row",
+    alignItems: "center",
   },
-  cardContainer: {
-    paddingLeft: 8,
-    paddingRight: 8,
-    paddingTop: 16,
-    paddingBottom: 16,
-    marginLeft: 12,
-    borderRadius: 16,
-    width: ScreenWidth * 0.8,
-    backgroundColor: "#343c4d",
+  checkboxImageStyle: {
+    width: 10,
+    height: 10,
+  },
+  descriptionContainer: {
+    width: "80%",
+    marginTop: 8,
+    marginLeft: 60,
+  },
+  dateContainer: {
+    marginRight: 8,
+    marginLeft: "auto",
+  },
+  dateTextStyle: {
+    fontWeight: "600",
+    color: "rgba(255,255,255,0.9)",
   },
 });

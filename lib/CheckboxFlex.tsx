@@ -12,7 +12,11 @@ import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
  * ? Local Imports
  */
-import styles from "./CheckboxFlex.style";
+import styles, {
+  _cardContainer,
+  _checkboxContainer,
+  _descriptionTextStyle,
+} from "./CheckboxFlex.style";
 
 type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
 type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<TextStyle>>;
@@ -22,6 +26,12 @@ type CustomImageStyleProp =
 
 interface ICheckboxFlexProps {
   title: string;
+  isActive?: boolean;
+  checkboxBorderColor?: string;
+  activeCheckboxBackgroundColor?: string;
+  inactiveCheckboxBackgroundColor?: string;
+  activeCardBackgroundColor?: string;
+  inactiveCardBackgroundColor?: string;
   date?: string;
   imageSource: any;
   description?: string;
@@ -31,15 +41,36 @@ interface ICheckboxFlexProps {
   checkboxContainerStyle?: CustomStyleProp;
   iconImageStyle?: CustomImageStyleProp;
   titleTextStyle?: CustomTextStyleProp;
-  onPress?: () => void;
+  dateTextStyle?: CustomTextStyleProp;
+  descriptionTextStyle?: CustomTextStyleProp;
+  onPress?: (isActive: boolean) => void;
 }
 
-interface IState {}
+interface IState {
+  isActive: boolean;
+}
 
 export default class CheckboxFlex extends Component<
   ICheckboxFlexProps,
   IState
 > {
+  constructor(props: ICheckboxFlexProps) {
+    super(props);
+    this.state = {
+      isActive: props.isActive || false,
+    };
+  }
+
+  handlePress = () => {
+    this.setState({ isActive: !this.state.isActive }, () => {
+      this.props.onPress && this.props.onPress(this.state.isActive);
+    });
+  };
+
+  /* -------------------------------------------------------------------------- */
+  /*                               Render Methods                               */
+  /* -------------------------------------------------------------------------- */
+
   renderIconContainer = () => (
     <View style={[styles.iconContainer, this.props.iconContainerStyle]}>
       <Image
@@ -61,55 +92,86 @@ export default class CheckboxFlex extends Component<
   );
 
   renderDate = () => (
-    <View style={{ marginLeft: "auto", marginRight: 8 }}>
-      <Text style={{ color: "rgba(255,255,255,0.9)", fontWeight: "600" }}>
+    <View style={styles.dateContainer}>
+      <Text style={[styles.dateTextStyle, this.props.dateTextStyle]}>
         {this.props.date}
       </Text>
     </View>
   );
 
-  renderCheckbox = () => (
-    <View
-      style={[styles.checkboxContainer, this.props.checkboxContainerStyle]}
-    ></View>
-  );
+  renderCheckbox = () => {
+    const {
+      checkboxBorderColor = "rgba(100,100,100,0.9)",
+      activeCheckboxBackgroundColor = "#63eead",
+      inactiveCheckboxBackgroundColor = "transparent",
+    } = this.props;
+    return (
+      <View
+        style={[
+          _checkboxContainer(
+            this.state.isActive,
+            checkboxBorderColor,
+            activeCheckboxBackgroundColor,
+            inactiveCheckboxBackgroundColor,
+          ),
+          this.props.checkboxContainerStyle,
+        ]}
+      >
+        {this.state.isActive && (
+          <Image
+            style={styles.checkboxImageStyle}
+            source={require("./check.png")}
+          />
+        )}
+      </View>
+    );
+  };
 
   renderDescription = () =>
     this.props.description && (
-      <View
-        style={{
-          width: "80%",
-          marginTop: 8,
-          marginLeft: 60,
-        }}
-      >
+      <View style={styles.descriptionContainer}>
         <Text
           numberOfLines={4}
-          style={{ color: "#86889b", fontWeight: "600", fontSize: 15 }}
+          style={[
+            _descriptionTextStyle(this.state.isActive),
+            this.props.descriptionTextStyle,
+          ]}
         >
           {this.props.description}
         </Text>
       </View>
     );
 
-  renderCard = () => (
-    <View style={styles.cardContainer}>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        {this.renderIconContainer()}
-        {this.renderTitle()}
-        {this.renderDate()}
+  renderCard = () => {
+    const {
+      activeCardBackgroundColor = "#2173FF",
+      inactiveCardBackgroundColor = "#343c4d",
+    } = this.props;
+    return (
+      <View
+        style={_cardContainer(
+          this.state.isActive,
+          activeCardBackgroundColor,
+          inactiveCardBackgroundColor,
+        )}
+      >
+        <View style={styles.cardContainerGlue}>
+          {this.renderIconContainer()}
+          {this.renderTitle()}
+          {this.renderDate()}
+        </View>
+        {this.renderDescription()}
       </View>
-      {this.renderDescription()}
-    </View>
-  );
+    );
+  };
 
   render() {
-    const { style, onPress } = this.props;
+    const { style } = this.props;
     return (
       <RNBounceable
         bounceEffect={0.93}
         style={[styles.container, style]}
-        onPress={onPress}
+        onPress={this.handlePress}
       >
         {this.renderCheckbox()}
         {this.renderCard()}
