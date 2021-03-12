@@ -24,6 +24,7 @@ interface ICheckboxFlexProps {
   title: string;
   date?: string;
   imageSource: any;
+  description?: string;
   titleNumberOfLines?: number;
   style?: CustomStyleProp;
   iconContainerStyle?: CustomStyleProp;
@@ -61,7 +62,7 @@ export default class CheckboxFlex extends Component<
 
   renderDate = () => (
     <View style={{ marginLeft: "auto", marginRight: 8 }}>
-      <Text style={{ color: "rgba(255,255,255,0.7)", fontWeight: "300" }}>
+      <Text style={{ color: "rgba(255,255,255,0.9)", fontWeight: "600" }}>
         {this.props.date}
       </Text>
     </View>
@@ -73,11 +74,32 @@ export default class CheckboxFlex extends Component<
     ></View>
   );
 
+  renderDescription = () =>
+    this.props.description && (
+      <View
+        style={{
+          width: "80%",
+          marginTop: 8,
+          marginLeft: 60,
+        }}
+      >
+        <Text
+          numberOfLines={4}
+          style={{ color: "#86889b", fontWeight: "600", fontSize: 15 }}
+        >
+          {this.props.description}
+        </Text>
+      </View>
+    );
+
   renderCard = () => (
     <View style={styles.cardContainer}>
-      {this.renderIconContainer()}
-      {this.renderTitle()}
-      {this.renderDate()}
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        {this.renderIconContainer()}
+        {this.renderTitle()}
+        {this.renderDate()}
+      </View>
+      {this.renderDescription()}
     </View>
   );
 
