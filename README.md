@@ -100,6 +100,7 @@ inactiveCardBackgroundColor?: string;
 | inactiveCheckboxBackgroundColor |   color    |      "transparent"      | change the inactive checkbox container background color            |
 | activeCardBackgroundColor       |   color    |        "#2173FF"        | change the active card container background color                  |
 | activeCheckboxBackgroundColor   |   color    |        "#343c4d"        | change the inactive card container background color                |
+| disableBuiltInActiveSystem      |  boolean   |          false          | disable the built in active control system                         |
 
 ## Future Plans
 

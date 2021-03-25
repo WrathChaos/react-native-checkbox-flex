@@ -36,6 +36,7 @@ interface ICheckboxFlexProps {
   imageSource: any;
   description?: string;
   titleNumberOfLines?: number;
+  disableBuiltInActiveSystem?: boolean;
   style?: CustomStyleProp;
   iconContainerStyle?: CustomStyleProp;
   checkboxContainerStyle?: CustomStyleProp;
@@ -62,9 +63,11 @@ export default class CheckboxFlex extends React.Component<
   }
 
   handlePress = () => {
-    this.setState({ isActive: !this.state.isActive }, () => {
-      this.props.onPress && this.props.onPress(this.state.isActive);
-    });
+    if (!this.props.disableBuiltInActiveSystem) {
+      this.setState({ isActive: !this.state.isActive }, () => {
+        this.props.onPress && this.props.onPress(this.state.isActive);
+      });
+    }
   };
 
   /* -------------------------------------------------------------------------- */
