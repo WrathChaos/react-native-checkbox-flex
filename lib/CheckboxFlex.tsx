@@ -67,6 +67,8 @@ export default class CheckboxFlex extends React.Component<
       this.setState({ isActive: !this.state.isActive }, () => {
         this.props.onPress && this.props.onPress(this.state.isActive);
       });
+    } else {
+      this.props.onPress && this.props.onPress()
     }
   };
 
