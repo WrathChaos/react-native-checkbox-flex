@@ -44,7 +44,7 @@ interface ICheckboxFlexProps {
   titleTextStyle?: CustomTextStyleProp;
   dateTextStyle?: CustomTextStyleProp;
   descriptionTextStyle?: CustomTextStyleProp;
-  onPress?: (isActive: boolean) => void;
+  onPress?: (isActive?: boolean) => void;
 }
 
 interface IState {
@@ -67,6 +67,8 @@ export default class CheckboxFlex extends React.Component<
       this.setState({ isActive: !this.state.isActive }, () => {
         this.props.onPress && this.props.onPress(this.state.isActive);
       });
+    } else {
+      this.props.onPress && this.props.onPress();
     }
   };
 
