@@ -26,20 +26,24 @@ type CustomImageStyleProp =
 
 interface ICheckboxFlexProps {
   title: string;
-  isActive?: boolean;
-  checkboxBorderColor?: string;
-  activeCheckboxBackgroundColor?: string;
-  inactiveCheckboxBackgroundColor?: string;
-  activeCardBackgroundColor?: string;
-  inactiveCardBackgroundColor?: string;
   date?: string;
   imageSource: any;
+  isActive?: boolean;
   description?: string;
+  disableDate?: boolean;
   titleNumberOfLines?: number;
+  checkboxBorderColor?: string;
+  activeCardBackgroundColor?: string;
+  inactiveCardBackgroundColor?: string;
   disableBuiltInActiveSystem?: boolean;
+  activeCheckboxBackgroundColor?: string;
+  inactiveCheckboxBackgroundColor?: string;
   style?: CustomStyleProp;
   iconContainerStyle?: CustomStyleProp;
+  dateContainerStyle?: CustomStyleProp;
+  titleContainerStyle?: CustomStyleProp;
   checkboxContainerStyle?: CustomStyleProp;
+  descriptionContainerStyle?: CustomStyleProp;
   iconImageStyle?: CustomImageStyleProp;
   titleTextStyle?: CustomTextStyleProp;
   dateTextStyle?: CustomTextStyleProp;
@@ -86,7 +90,7 @@ export default class CheckboxFlex extends React.Component<
   );
 
   renderTitle = () => (
-    <View style={styles.titleContainer}>
+    <View style={[styles.titleContainer, this.props.titleContainerStyle]}>
       <Text
         style={[styles.titleTextStyle, this.props.titleTextStyle]}
         numberOfLines={this.props.titleNumberOfLines || 2}
@@ -96,13 +100,14 @@ export default class CheckboxFlex extends React.Component<
     </View>
   );
 
-  renderDate = () => (
-    <View style={styles.dateContainer}>
-      <Text style={[styles.dateTextStyle, this.props.dateTextStyle]}>
-        {this.props.date}
-      </Text>
-    </View>
-  );
+  renderDate = () =>
+    this.props.disableDate && (
+      <View style={[styles.dateContainer, this.props.dateContainerStyle]}>
+        <Text style={[styles.dateTextStyle, this.props.dateTextStyle]}>
+          {this.props.date}
+        </Text>
+      </View>
+    );
 
   renderCheckbox = () => {
     const {
@@ -134,7 +139,7 @@ export default class CheckboxFlex extends React.Component<
 
   renderDescription = () =>
     this.props.description && (
-      <View style={styles.descriptionContainer}>
+      <View style={[styles.descriptionContainer, this.props.descriptionContainerStyle]}>
         <Text
           numberOfLines={4}
           style={[

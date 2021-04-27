@@ -83,24 +83,28 @@ inactiveCardBackgroundColor?: string;
 
 ## Customization (Optionals)
 
-| Property                        |    Type    |         Default         | Description                                                        |
-| ------------------------------- | :--------: | :---------------------: | ------------------------------------------------------------------ |
-| onPress                         |  function  |        undefined        | set your own logic for the button functionality when it is pressed |
-| isActive                        |  boolean   |          false          | set the initial isActive state                                     |
-| style                           | ViewStyle  |         default         | set or override the style object for the main container            |
-| checkboxContainerStyle          | ViewStyle  |         default         | set or override the style object for the checkbox container        |
-| iconContainerStyle              | ViewStyle  |         default         | set or override the style object for the icon container            |
-| iconImageStyle                  | ImageStyle |         default         | set or override the style object for the icon image                |
-| titleTextStyle                  | TextStyle  |         default         | set or override the style object for the title text                |
-| dateTextStyle                   | TextStyle  |         default         | set or override the style object for the date text                 |
-| descriptionTextStyle            | TextStyle  |         default         | set or override the style object for the description text          |
-| titleNumberOfLines              |   number   |            2            | change the title number of lines                                   |
-| checkboxBorderColor             |   color    | "rgba(100,100,100,0.9)" | change the checkbox border color                                   |
-| activeCheckboxBackgroundColor   |   color    |        "#63eead"        | change the active checkbox container background color              |
-| inactiveCheckboxBackgroundColor |   color    |      "transparent"      | change the inactive checkbox container background color            |
-| activeCardBackgroundColor       |   color    |        "#2173FF"        | change the active card container background color                  |
-| activeCheckboxBackgroundColor   |   color    |        "#343c4d"        | change the inactive card container background color                |
-| disableBuiltInActiveSystem      |  boolean   |          false          | disable the built in active control system                         |
+| Property                        |    Type    |         Default         | Description                                                             |
+| ------------------------------- | :--------: | :---------------------: | ----------------------------------------------------------------------- |
+| onPress                         |  function  |        undefined        | set your own logic for the button functionality when it is pressed      |
+| isActive                        |  boolean   |          false          | set the initial isActive state                                          |
+| style                           | ViewStyle  |         default         | set or override the style object for the main container                 |
+| checkboxContainerStyle          | ViewStyle  |         default         | set or override the style object for the checkbox container             |
+| iconContainerStyle              | ViewStyle  |         default         | set or override the style object for the icon container                 |
+| iconImageStyle                  | ImageStyle |         default         | set or override the style object for the icon image                     |
+| titleTextStyle                  | TextStyle  |         default         | set or override the style object for the title text                     |
+| dateTextStyle                   | TextStyle  |         default         | set or override the style object for the date text                      |
+| descriptionTextStyle            | TextStyle  |         default         | set or override the style object for the description text               |
+| titleNumberOfLines              |   number   |            2            | change the title number of lines                                        |
+| checkboxBorderColor             |   color    | "rgba(100,100,100,0.9)" | change the checkbox border color                                        |
+| activeCheckboxBackgroundColor   |   color    |        "#63eead"        | change the active checkbox container background color                   |
+| inactiveCheckboxBackgroundColor |   color    |      "transparent"      | change the inactive checkbox container background color                 |
+| activeCardBackgroundColor       |   color    |        "#2173FF"        | change the active card container background color                       |
+| activeCheckboxBackgroundColor   |   color    |        "#343c4d"        | change the inactive card container background color                     |
+| disableBuiltInActiveSystem      |  boolean   |          false          | disable the built in active control system                              |
+| disableDate                     |  boolean   |          false          | disable date component                                                  |
+| dateContainerStyle              | ViewStyle  |         default         | set or override the style object for the checkbox date container        |
+| titleContainerStyle             | ViewStyle  |         default         | set or override the style object for the checkbox title container       |
+| descriptionContainerStyle       | ViewStyle  |         default         | set or override the style object for the checkbox description container |
 
 ## Future Plans
 
