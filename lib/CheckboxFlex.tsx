@@ -137,27 +137,28 @@ export default class CheckboxFlex extends React.Component<
     );
   };
 
-  renderDescription = () =>
-    (this.props.description != null ||
-      this.props.description != undefined ||
-      this.props.description != "") && (
-      <View
-        style={[
-          styles.descriptionContainer,
-          this.props.descriptionContainerStyle,
-        ]}
-      >
-        <Text
-          numberOfLines={4}
+  renderDescription = () => {
+    if (this.props.description) return null;
+    else
+      return (
+        <View
           style={[
-            _descriptionTextStyle(this.state.isActive),
-            this.props.descriptionTextStyle,
+            styles.descriptionContainer,
+            this.props.descriptionContainerStyle,
           ]}
         >
-          {this.props.description}
-        </Text>
-      </View>
-    );
+          <Text
+            numberOfLines={4}
+            style={[
+              _descriptionTextStyle(this.state.isActive),
+              this.props.descriptionTextStyle,
+            ]}
+          >
+            {this.props.description}
+          </Text>
+        </View>
+      );
+  };
 
   renderCard = () => {
     const {
