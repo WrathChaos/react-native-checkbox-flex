@@ -1,6 +1,6 @@
 {
   "name": "react-native-checkbox-flex",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Fully customizable, easy to use checkbox with flexible component by React Native on Android and iOS",
   "main": "./build/dist/CheckboxFlex.js",
   "repository": "git@github.com:WrathChaos/react-native-checkbox-flex.git",
