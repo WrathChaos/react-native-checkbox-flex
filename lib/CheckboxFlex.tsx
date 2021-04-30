@@ -138,8 +138,13 @@ export default class CheckboxFlex extends React.Component<
   };
 
   renderDescription = () =>
-    this.props.description && (
-      <View style={[styles.descriptionContainer, this.props.descriptionContainerStyle]}>
+    (this.props.description != null || this.props.description != undefined) && (
+      <View
+        style={[
+          styles.descriptionContainer,
+          this.props.descriptionContainerStyle,
+        ]}
+      >
         <Text
           numberOfLines={4}
           style={[
