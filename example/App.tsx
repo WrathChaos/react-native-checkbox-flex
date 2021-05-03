@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from "react-native";
+import { View, StatusBar, ScrollView, SafeAreaView } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import CheckboxFlex from "react-native-checkbox-flex";
 

@@ -49,6 +49,7 @@ interface ICheckboxFlexProps {
   dateTextStyle?: CustomTextStyleProp;
   descriptionTextStyle?: CustomTextStyleProp;
   onPress?: (isActive?: boolean) => void;
+  onCardPress?: () => void;
 }
 
 interface IState {
@@ -59,6 +60,8 @@ export default class CheckboxFlex extends React.Component<
   ICheckboxFlexProps,
   IState
 > {
+  cardRef: RNBounceable | null = null;
+
   constructor(props: ICheckboxFlexProps) {
     super(props);
     this.state = {
@@ -67,12 +70,23 @@ export default class CheckboxFlex extends React.Component<
   }
 
   handlePress = () => {
+    this.cardRef?.animate();
     if (!this.props.disableBuiltInActiveSystem) {
       this.setState({ isActive: !this.state.isActive }, () => {
         this.props.onPress && this.props.onPress(this.state.isActive);
       });
     } else {
       this.props.onPress && this.props.onPress();
+    }
+  };
+
+  handleCardPress = () => {
+    if (!this.props.disableBuiltInActiveSystem) {
+      this.setState({ isActive: !this.state.isActive }, () => {
+        this.props.onPress && this.props.onPress(this.state.isActive);
+      });
+    } else {
+      this.props.onCardPress && this.props.onCardPress();
     }
   };
 
@@ -186,14 +200,18 @@ export default class CheckboxFlex extends React.Component<
   render() {
     const { style } = this.props;
     return (
-      <RNBounceable
-        bounceEffect={0.93}
-        style={[styles.container, style]}
-        onPress={this.handlePress}
-      >
-        {this.renderCheckbox()}
-        {this.renderCard()}
-      </RNBounceable>
+      <View style={[styles.container, style]}>
+        <RNBounceable bounceEffect={0.93} onPress={this.handlePress}>
+          {this.renderCheckbox()}
+        </RNBounceable>
+        <RNBounceable
+          ref={(ref: any) => (this.cardRef = ref)}
+          bounceEffect={0.93}
+          onPress={this.handleCardPress}
+        >
+          {this.renderCard()}
+        </RNBounceable>
+      </View>
     );
   }
 }

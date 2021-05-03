@@ -703,10 +703,10 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
-"@freakycoder/react-native-bounceable@^0.2.4":
-  "integrity" "sha512-Gw9TuO65oCzYYz78RV6OtUjfdbYPdt2RIrDt441oo3JV8++aW9485z9GCqrqxNi1qCO8gC18iNkFLfBMhazZpA=="
-  "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-0.2.4.tgz"
-  "version" "0.2.4"
+"@freakycoder/react-native-bounceable@^0.2.5":
+  "integrity" "sha512-J8WBOYxbm/um7SqXYneduZ08T5Kin9z+ixsS3wOLtpeNvKscuqmDEgsgefTYydeSIoI5dOfWmklnRRgu5i/8nA=="
+  "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-0.2.5.tgz"
+  "version" "0.2.5"
 
 "@hapi/address@2.x.x":
   "integrity" "sha512-QD1PhQk+s31P1ixsX0H0Suoupp3VMXzIVMSwobR3F3MSUO2YCV0B7xqLcUw/Bh8yuvd3LhpyqLQWTNcRmp6IdQ=="
@@ -5599,10 +5599,10 @@
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react-native-checkbox-flex@^0.1.0":
-  "integrity" "sha512-qRJ5h08XxNwQe30kB1nml69wvFAV8B7ESdWwGJ+apSp7OYjyRC5nDgkXR/0/OGYIco3zm3VPP4lBaXo8L8sYWw=="
-  "resolved" "https://registry.npmjs.org/react-native-checkbox-flex/-/react-native-checkbox-flex-0.1.0.tgz"
-  "version" "0.1.0"
+"react-native-checkbox-flex@^0.1.1":
+  "integrity" "sha512-gVH6BK4LwVl6MetLi7d3HVTjtuEw7DJw66+94nWPw1Nxt0olL2rIRFTY6xXf7MzCERHpRvTKmGb1xmV8TDHVHw=="
+  "resolved" "https://registry.npmjs.org/react-native-checkbox-flex/-/react-native-checkbox-flex-0.1.11.tgz"
+  "version" "0.1.11"
 
 "react-native-linear-gradient@^2.5.6":
   "integrity" "sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg=="
