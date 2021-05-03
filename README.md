@@ -86,6 +86,7 @@ inactiveCardBackgroundColor?: string;
 | Property                        |    Type    |         Default         | Description                                                             |
 | ------------------------------- | :--------: | :---------------------: | ----------------------------------------------------------------------- |
 | onPress                         |  function  |        undefined        | set your own logic for the button functionality when it is pressed      |
+| onCardPress                     |  function  |        undefined        | set your own logic for the card button functionality when it is pressed |
 | isActive                        |  boolean   |          false          | set the initial isActive state                                          |
 | style                           | ViewStyle  |         default         | set or override the style object for the main container                 |
 | checkboxContainerStyle          | ViewStyle  |         default         | set or override the style object for the checkbox container             |
