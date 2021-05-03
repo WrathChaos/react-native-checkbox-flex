@@ -34,7 +34,7 @@ npm i react-native-checkbox-flex
 <h5><i>IMPORTANT! You need install them</i></h5>
 
 ```js
-"@freakycoder/react-native-bounceable": "^0.2.4",
+"@freakycoder/react-native-bounceable": "^0.2.5",
 ```
 
 # Usage
