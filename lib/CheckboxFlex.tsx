@@ -101,7 +101,7 @@ export default class CheckboxFlex extends React.Component<
   );
 
   renderDate = () =>
-    this.props.disableDate && (
+    !this.props.disableDate && (
       <View style={[styles.dateContainer, this.props.dateContainerStyle]}>
         <Text style={[styles.dateTextStyle, this.props.dateTextStyle]}>
           {this.props.date}
