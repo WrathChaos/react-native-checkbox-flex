@@ -138,7 +138,7 @@ export default class CheckboxFlex extends React.Component<
   };
 
   renderDescription = () => {
-    if (this.props.description) return null;
+    if (!this.props.description) return null;
     else
       return (
         <View
