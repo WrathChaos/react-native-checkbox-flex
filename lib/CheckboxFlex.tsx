@@ -49,7 +49,7 @@ interface ICheckboxFlexProps {
   dateTextStyle?: CustomTextStyleProp;
   descriptionTextStyle?: CustomTextStyleProp;
   onPress?: (isActive?: boolean) => void;
-  onCardPress?: () => void;
+  onCardPress?: (isActive?: boolean) => void;
 }
 
 interface IState {
@@ -83,7 +83,7 @@ export default class CheckboxFlex extends React.Component<
   handleCardPress = () => {
     if (!this.props.disableBuiltInActiveSystem) {
       this.setState({ isActive: !this.state.isActive }, () => {
-        this.props.onPress && this.props.onPress(this.state.isActive);
+        this.props.onCardPress && this.props.onCardPress(this.state.isActive);
       });
     } else {
       this.props.onCardPress && this.props.onCardPress();
