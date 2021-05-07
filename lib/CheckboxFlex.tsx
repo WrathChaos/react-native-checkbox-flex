@@ -35,7 +35,8 @@ interface ICheckboxFlexProps {
   checkboxBorderColor?: string;
   activeCardBackgroundColor?: string;
   inactiveCardBackgroundColor?: string;
-  disableBuiltInActiveSystem?: boolean;
+  disableBuiltInActiveSystemForCheckbox?: boolean;
+  disableBuiltInActiveSystemForCard?: boolean;
   activeCheckboxBackgroundColor?: string;
   inactiveCheckboxBackgroundColor?: string;
   style?: CustomStyleProp;
@@ -71,7 +72,7 @@ export default class CheckboxFlex extends React.Component<
 
   handlePress = () => {
     this.cardRef?.animate();
-    if (!this.props.disableBuiltInActiveSystem) {
+    if (!this.props.disableBuiltInActiveSystemForCheckbox) {
       this.setState({ isActive: !this.state.isActive }, () => {
         this.props.onPress && this.props.onPress(this.state.isActive);
       });
@@ -81,7 +82,7 @@ export default class CheckboxFlex extends React.Component<
   };
 
   handleCardPress = () => {
-    if (!this.props.disableBuiltInActiveSystem) {
+    if (!this.props.disableBuiltInActiveSystemForCard) {
       this.setState({ isActive: !this.state.isActive }, () => {
         this.props.onCardPress && this.props.onCardPress(this.state.isActive);
       });
