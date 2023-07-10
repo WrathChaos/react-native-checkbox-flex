@@ -4,7 +4,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "@react-native-community",
     "prettier",
   ],
   ignorePatterns: [
@@ -18,15 +17,14 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   plugins: [
-    "import",
     "react",
     "react-native",
     "prettier",
     "react-hooks",
+    "jest",
     "@typescript-eslint",
     "promise",
-    "jest",
-    "unused-imports",
+    "unused-imports"
   ],
   env: {
     browser: true,
@@ -110,6 +108,8 @@ module.exports = {
     "import/no-deprecated": 0,
     "@typescript-eslint/indent": 0,
     "react-hooks/rules-of-hooks": 2,
+    "unused-imports/no-unused-imports": 2,
+    "unused-imports/no-unused-vars": 2,
     camelcase: 2,
     "prefer-destructuring": 2,
     "no-nested-ternary": 2,

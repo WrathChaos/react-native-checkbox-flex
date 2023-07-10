@@ -1,12 +1,12 @@
 import * as React from "react";
 import {
-  Text,
-  View,
   Image,
-  StyleProp,
-  ViewStyle,
-  TextStyle,
   ImageStyle,
+  StyleProp,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
 } from "react-native";
 import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
@@ -60,6 +60,7 @@ const CheckboxFlex: React.FC<CheckboxFlexProps> = ({
   dateContainerStyle,
   title,
   imageSource,
+  isActive = false,
   titleNumberOfLines,
   titleTextStyle,
   iconImageStyle,
@@ -75,26 +76,27 @@ const CheckboxFlex: React.FC<CheckboxFlexProps> = ({
   activeCardBackgroundColor = "#2173FF",
   inactiveCardBackgroundColor = "#343c4d",
 }) => {
-  const [isActive, setIsActive] = useStateWithCallback<boolean>(false);
+  const [isLocalActive, setIsLocalActive] =
+    useStateWithCallback<boolean>(isActive);
 
   const handlePress = () => {
-    if (!disableBuiltInActiveSystemForCheckbox) {
-      setIsActive(!isActive, (newValue: boolean) => {
-        onPress?.(newValue);
-      });
-    } else {
-      onPress?.();
+    if (disableBuiltInActiveSystemForCheckbox) {
+      return onPress?.();
     }
+
+    setIsLocalActive(!isLocalActive, (newValue: boolean) => {
+      onPress?.(newValue);
+    });
   };
 
   const handleCardPress = () => {
-    if (!disableBuiltInActiveSystemForCard) {
-      setIsActive(!isActive, (newValue: boolean) => {
-        onCardPress?.(newValue);
-      });
-    } else {
-      onCardPress?.();
+    if (disableBuiltInActiveSystemForCard) {
+      return onCardPress?.();
     }
+
+    setIsLocalActive(!isLocalActive, (newValue: boolean) => {
+      onCardPress?.(newValue);
+    });
   };
 
   /* -------------------------------------------------------------------------- */
@@ -133,7 +135,7 @@ const CheckboxFlex: React.FC<CheckboxFlexProps> = ({
       <View
         style={[
           _checkboxContainer(
-            isActive,
+            isLocalActive,
             checkboxBorderColor,
             activeCheckboxBackgroundColor,
             inactiveCheckboxBackgroundColor,
@@ -141,7 +143,7 @@ const CheckboxFlex: React.FC<CheckboxFlexProps> = ({
           checkboxContainerStyle,
         ]}
       >
-        {isActive && (
+        {isLocalActive && (
           <Image
             style={styles.checkboxImageStyle}
             source={require("./check.png")}
@@ -159,7 +161,7 @@ const CheckboxFlex: React.FC<CheckboxFlexProps> = ({
         <View style={[styles.descriptionContainer, descriptionContainerStyle]}>
           <Text
             numberOfLines={4}
-            style={[_descriptionTextStyle(isActive), descriptionTextStyle]}
+            style={[_descriptionTextStyle(isLocalActive), descriptionTextStyle]}
           >
             {description}
           </Text>
@@ -172,7 +174,7 @@ const CheckboxFlex: React.FC<CheckboxFlexProps> = ({
     return (
       <View
         style={_cardContainer(
-          isActive,
+          isLocalActive,
           activeCardBackgroundColor,
           inactiveCardBackgroundColor,
         )}

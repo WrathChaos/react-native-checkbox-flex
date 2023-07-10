@@ -1,9 +1,11 @@
-import React from 'react';
-import {View, StatusBar, ScrollView, SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import CheckboxFlex from 'react-native-checkbox-flex';
+import CheckboxFlex from './build/dist/CheckboxFlex';
 
 const App = () => {
+  const [checked, setChecked] = useState(false);
+
   return (
     <>
       <LinearGradient
@@ -16,6 +18,8 @@ const App = () => {
           <ScrollView>
             <View style={{marginTop: 12}}>
               <CheckboxFlex
+                isActive={checked}
+                disableBuiltInActiveSystemForCard
                 title="Morning Run"
                 date="9:00 AM"
                 description="Nulla vitae elit libero, a pharetra augue."
@@ -26,6 +30,7 @@ const App = () => {
                   tintColor: '#fff',
                 }}
                 imageSource={require('./assets/running.png')}
+                onPress={isActive => isActive && setChecked(isActive)}
               />
             </View>
             <View style={{marginTop: 12}}>
